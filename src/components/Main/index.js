@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from  'react'
-import {Text} from './style'
+import * as S from './style'
 
 import {api} from '../../services/api'
 
@@ -13,9 +13,14 @@ export function Main() {
 
 
     return(
-        <div>
-            <p>simplesmente</p>
-            {list.map((item,index) => <Text key={index}>{item.name}</Text>)}
-        </div>
+        <S.Container>
+            {list.map((item,index) => (
+                <S.ContainerMap>
+                    <S.Text key={index}>{item.name}</S.Text>
+                    <S.Image src={item.image}></S.Image>
+                </S.ContainerMap>
+            ))
+            }
+        </S.Container>
     )
 }
